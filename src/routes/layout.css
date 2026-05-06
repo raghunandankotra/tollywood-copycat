@@ -1,17 +1,69 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-brand-gold: #D4AF37;
-  --color-brand-charcoal: #121212;
+  /* Color Palette */
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #1a1a1a;
+  
+  --color-accent-gold: #FFD700;
+  --color-accent-gold-muted: #B8860B;
+  
+  --color-text-primary: #EDEDED;
+  --color-text-secondary: #A0A0A0;
+
+  /* Legacy aliases for consistency with previous setup if needed */
+  --color-brand-gold: var(--color-accent-gold);
+  --color-brand-charcoal: var(--color-bg-primary);
+
+  /* Typography Scales */
+  --font-size-heading-xl: 3rem;
+  --font-line-height-heading-xl: 1.1;
+  
+  --font-size-heading-lg: 2rem;
+  --font-line-height-heading-lg: 1.2;
+  
+  --font-size-body: 1rem;
+  --font-line-height-body: 1.5;
+  
+  --font-size-caption: 0.875rem;
+  --font-line-height-caption: 1.4;
 }
 
 :root {
-  background-color: var(--color-brand-charcoal);
-  color: white;
-  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+}
+
+/* Base Heading Styles */
+h1 {
+  font-size: var(--font-size-heading-xl);
+  line-height: var(--font-line-height-heading-xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--font-size-heading-lg);
+  line-height: var(--font-line-height-heading-lg);
+  font-weight: 700;
+}
+
+p {
+  font-size: var(--font-size-body);
+  line-height: var(--font-line-height-body);
+  color: var(--color-text-secondary);
+}
+
+.caption {
+  font-size: var(--font-size-caption);
+  line-height: var(--font-line-height-caption);
+  color: var(--color-text-secondary);
 }
