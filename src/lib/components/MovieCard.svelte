@@ -8,13 +8,26 @@
         side?: 'telugu' | 'source',
         isHovered?: boolean
     } = $props();
+
+	// Some poster hosts block hotlinking or require referrer headers.
+	// We show a local fallback image if the remote image fails to load.
+	let posterSrc = $state(movie.posterUrl || '/poster-fallback.svg');
+	$effect(() => {
+		posterSrc = movie.posterUrl || '/poster-fallback.svg';
+	});
 </script>
 
 <div class="relative flex flex-col group/side overflow-hidden h-full">
     <div class="aspect-[2/3] relative overflow-hidden">
         <img 
-            src={movie.posterUrl} 
+            src={posterSrc} 
             alt={movie.title}
+			referrerpolicy="no-referrer"
+			loading="lazy"
+			decoding="async"
+			onerror={() => {
+				posterSrc = '/poster-fallback.svg';
+			}}
             class="w-full h-full object-cover transition-transform duration-700 {isHovered ? 'scale-110' : 'group-hover/side:scale-105'}"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-bg-secondary via-transparent to-transparent opacity-80"></div>
