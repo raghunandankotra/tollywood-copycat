@@ -24,10 +24,19 @@ export default [
 			}
 		},
 		rules: {
-			'svelte/no-navigation-without-resolve': 'off'
+			'svelte/no-navigation-without-resolve': 'off',
+			'svelte/prefer-writable-derived': 'off',
+			'svelte/no-unused-svelte-ignore': 'off'
 		}
 	},
 	{
-		ignores: ['build/', '.svelte-kit/', 'dist/']
+		ignores: [
+			'build/',
+			'.svelte-kit/',
+			'dist/',
+			'node_modules/',
+			'.vercel/',
+			'supabase/.temp/'
+		]
 	}
 ];

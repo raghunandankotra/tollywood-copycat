@@ -29,7 +29,6 @@
 		Unofficial: 'bg-orange-900/40 text-orange-200 border-orange-500/30'
 	};
 
-    // svelte-ignore svelte/prefer-writable-derived
     let activePoster = $state(teluguMovie.posterUrl);
     let currentVote = $derived(voteStore.getVote(id));
     let showCommentModal = $state(false);
